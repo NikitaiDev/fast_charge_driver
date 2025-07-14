@@ -14,7 +14,12 @@ The driver recognizes the following commands (via either write or ioctl):
 ## Dependencies
 ```bash
 sudo apt-get update
-sudo apt-get install -y build-essential linux-headers-$(uname -r) bash coreutils libc6-dev kmod python3 python3-pip
+sudo apt-get install -y build-essential linux-headers-$(uname -r) bash coreutils libc6-dev kmod python3 python3-full python3-pip python3-requests python3-venv
+# For Debian; if you wish to install a non-Debian-packaged Python package
+python3 -m venv .vevn 
+source .venv/bin/activate
+pip install requests
+#
 pip install pyserial
 ```
 
@@ -59,7 +64,7 @@ close(fd);
 ## Test
 ### Write/Read
 ```bash
-./tests/test_wr.sh
+sudo ./tests/test_wr.sh
 ```
 
 ### IOCTL
